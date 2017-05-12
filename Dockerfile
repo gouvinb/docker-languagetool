@@ -1,18 +1,17 @@
-FROM debian:sid
+FROM openjdk:latest
 
-MAINTAINER gouvinb
-
-LABEL "com.gouvinb.docker-languagetool"="gouvinb" \
-      version="1.0" \
+LABEL author="gouvinb"                            \
+      com.gouvinb.docker-languagetool="gouvinb" \
+      version="1.0"                               \
       description="A Docker image for languagetool, command Line and server Interface for languagetool."
 
-ENV VERSION 3.6
+ENV VERSION 3.7
 ADD https://www.languagetool.org/download/LanguageTool-$VERSION.zip /LanguageTool-$VERSION.zip
 
-RUN apt update
-RUN apt install -y openjdk-8-jre
+RUN apt update && apt upgrade -y
 RUN apt install -y unzip
-RUN apt clean
+# RUN apt clean
+
 RUN unzip LanguageTool-$VERSION.zip
 RUN rm LanguageTool-$VERSION.zip
 
