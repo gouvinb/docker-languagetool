@@ -5,7 +5,7 @@ LABEL author="gouvinb"                            \
       version="1.0"                               \
       description="A Docker image for languagetool, command Line and server Interface for languagetool."
 
-ENV VERSION 3.7
+ENV VERSION 3.8
 ADD https://www.languagetool.org/download/LanguageTool-$VERSION.zip /LanguageTool-$VERSION.zip
 
 RUN apt update && apt upgrade -y
